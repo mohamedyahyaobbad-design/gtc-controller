@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO PRINCIPAL -->
+    <title>Catalogue GTC Controller | Manette Gaming PC, Console et Mobile</title>
+
+    <meta name="description" content="Explorez le catalogue complet des manettes GTC Controller : des manettes gaming tactiles haute performance, compatibles PC, console et mobile. Trouvez la manette de jeu accessible et professionnelle qui vous convient, disponible en plusieurs couleurs.">
+
+    <meta name="keywords" content="manette gaming, controller PC, manette console, GTC Controller, gaming maroc, manette tactile, manette de jeu accessible, gamer, remote controller, manette FPS, manette pour PC, manette pour mobile, catalogue manettes">
+
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO Réseaux sociaux -->
+    <meta property="og:title" content="GTC Controller - Catalogue Gaming">
+    <meta property="og:description" content="Manette gaming nouvelle génération avec écran tactile intégré.">
+    <meta property="og:image" content="gtc.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- SEO URL (à adapter si besoin) -->
+    <link rel="canonical" href="https://gtc.com/catalogue.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GTC Controller - Catalogue Gaming">
+    <meta name="twitter:description" content="Manette gaming nouvelle génération avec écran tactile intégré.">
+    <meta name="twitter:image" content="gtc.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="gtc.jpg">
+
+    <!-- Open Graph Fix (URL) -->
+    <meta property="og:url" content="https://example.com/catalogue.html">
+
+    <!-- Schema.org (Product) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "GTC Controller",
+      "description": "Manette gaming tactile haute performance compatible PC, console et mobile. Plusieurs couleurs disponibles.",
+      "brand": {
+        "@type": "Brand",
+        "name": "GTC Controller"
+      },
+      "category": "Manette gaming",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "199.9",
+        "highPrice": "199.9",
+        "offerCount": 1,
+        "availability": "https://schema.org/InStock"
+      },
+      "image": [
+        "gtc.jpg"
+      ]
+    }
+    </script>
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+        body{background:#0a0a0a;color:white;}
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            z-index: 1000;
+        }
+
+        .logo{font-size:26px;font-weight:bold;color:gold;}
+
+        /* BARRE DE RECHERCHE GTC */
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid gold;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .search-box:focus-within {
+            box-shadow: 0 0 10px gold;
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            padding: 5px;
+            width: 150px;
+            transition: width 0.4s;
+        }
+
+        .search-box input:focus {
+            width: 200px;
+        }
+
+        .search-box span {
+            color: gold;
+            font-size: 18px;
+            cursor: default;
+        }
+
+        .menu{display:flex;gap:30px;}
+        .menu a{color:white;text-decoration:none; transition: 0.3s;}
+        .menu a:hover{color:gold;}
+
+        /* ===== AFFICHE PUBLICITAIRE ===== */
+        .hero{
+            height:80vh;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:50px;
+            background:
+                radial-gradient(circle at 20% 30%, #111, #000),
+                radial-gradient(circle at 80% 70%, #2a1a00, #000);
+            margin-bottom:50px;
+        }
+
+        .hero-content{max-width:500px;}
+        .hero h1{font-size:60px;color:gold;letter-spacing:5px;}
+        .hero h2{font-size:26px;margin:10px 0;}
+        .hero p{color:gray;margin-bottom:20px;}
+        .price{font-size:30px;color:#00f5ff;margin-bottom:20px;font-weight:bold;}
+
+        .hero button{
+            padding:15px 30px;
+            border:none;
+            border-radius:30px;
+            background:gold;
+            color:black;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .hero button:hover{background:white;transform:scale(1.05);}
+
+        /* IMAGES HERO */
+        .hero-images{position:relative;width:50%;height:100%;}
+        .hero-images img{
+            position:absolute;
+            width:220px;
+            filter:drop-shadow(0 0 20px gold);
+            transition:0.4s;
+        }
+
+        .hero-images img:nth-child(1){top:10%;left:20%;transform:rotate(-10deg);}
+        .hero-images img:nth-child(2){top:40%;left:50%;transform:rotate(10deg);}
+        .hero-images img:nth-child(3){top:60%;left:10%;transform:rotate(-5deg);}
+        .hero-images img:hover{transform:scale(1.2);}
+
+        /* ===== PRODUITS ===== */
+        .container{padding:40px;text-align:center;}
+        .container h1{margin-bottom:40px;color:gold;}
+
+        .products{
+            display:flex;
+            gap:25px;
+            justify-content:center;
+            flex-wrap:wrap;
+            min-height: 300px;
+        }
+
+        .product-card{
+            background:#1a1a1a;
+            padding:20px;
+            border-radius:15px;
+            width:200px;
+            transition:0.3s;
+            border: 1px solid transparent;
+        }
+
+        .product-card:hover{
+            transform:scale(1.05);
+            border-color: gold;
+        }
+
+        .product-card img{
+            width:120px;
+            margin-bottom:15px;
+            border-radius: 5px;
+        }
+
+        .product-card h3 { font-size: 18px; margin-bottom: 5px; }
+        .product-card p { color: #00f5ff; font-weight: bold; margin-bottom: 15px; }
+
+        .btn-buy {
+            padding: 8px 15px;
+            border: none;
+            background: gold;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover{background:white;}
+
+        /* Message si rien n'est trouvé */
+        #noResults {
+            display: none;
+            color: gold;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        footer{
+            text-align:center;
+            padding:20px;
+            background:black;
+            color:gray;
+            margin-top:50px;
+            font-size:14px;
+            border-top: 1px solid #222;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            nav{flex-direction:column;gap:15px;}
+            .search-box { width: 90%; }
+            .hero{flex-direction:column;text-align:center;height:auto;}
+            .hero-images{width:100%;height:250px;margin-top:20px;}
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">GTC</div>
+    
+    <div class="search-box">
+        <input type="text" id="gtcSearch" placeholder="Rechercher une couleur..." onkeyup="filterGTC()">
+        <span>🔍</span>
+    </div>
+
+    <div class="menu">
+        <a href="accueil.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="panier.html">Panier</a>
+        <a href="paiement.html">Paiement</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Manette Gaming GTC Controller</h1>
+        <h2>La puissance entre vos mains</h2>
+        <p>Performance • Design • Gaming Pro</p>
+        <div class="price">À partir de 199.9 €</div>
+        <button onclick="document.querySelector('.container').scrollIntoView({behavior:'smooth'})">
+            Acheter maintenant
+        </button>
+    </div>
+
+    <div class="hero-images">
+        <img src="gtc.jpg">
+        <img src="gtc-rouge.jpg">
+        <img src="GTCBLANC.jpg">
+    </div>
+</section>
+
+<!-- Texte SEO (ajout léger, ne change pas ton design global) -->
+<section class="seo-strategy-catalogue" style="padding:10px 40px;text-align:center;color:#cfcfcf; margin-top: 30px;">
+    <h2 style="color:gold; margin-bottom: 15px;">Notre Catalogue</h2>
+    
+</section>
+<section style="padding:10px 40px;text-align:center;color:#cfcfcf;">
+    <p style="max-width:900px;margin:0 auto;">
+        Découvrez notre catalogue de manettes gaming <strong>GTC Controller</strong> : compatibilité PC, console et mobile, écran tactile haute performance et plusieurs couleurs disponibles.
+        Parfait pour le gaming sur les consoles et PC, pour une expérience fluide et réactive.
+    </p>
+</section>
+
+<div class="container">
+    <h1>Nos Produits</h1>
+
+    <div id="noResults">Désolé, ce modèle GTC n'est pas disponible.</div>
+
+    <div class="products" id="productGrid">
+        <div class="product-card">
+            <img src="gtc.jpg"  alt="manette gaming GTC noir" loading="lazy">
+            <h3>GTC Noir</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Noir',199.9,'gtc.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="GTCBLANC.jpg" alt="manette gaming GTC blanc" loading="lazy">
+            <h3>GTC Blanc</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Blanc',199.9,'GTCBLANC.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gtc-rouge.jpg" alt="manette gaming GTC rouge" loading="lazy">
+            <h3>GTC Rouge</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Rouge',199.9,'gtc-rouge.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gtcbleu.jpg" alt="manette gaming GTC bleu" loading="lazy">
+            <h3>GTC Bleu</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Bleu',199.9,'gtcbleu.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gtcvert.jpg" alt="manette gaming GTC vert" loading="lazy">
+            <h3>GTC Vert</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Vert',199.9,'gtcvert.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gtcor.jpg" alt="manette gaming GTC doré" loading="lazy">
+            <h3>GTC Doré</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Doré',199.9,'gtcor.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gtcv.jpg" alt="manette gaming GTC violet" loading="lazy">
+            <h3>GTC Violet</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Violet',199.9,'gtcv.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gtcrose.jpg" alt="manette gaming GTC rose" loading="lazy">
+            <h3>GTC Rose</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Rose',199.9,'gtcrose.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gtcgris.jpg" alt="manette gaming GTC gris" loading="lazy">
+            <h3>GTC Gris</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Gris',199.9,'gtcgris.jpg')">Ajouter</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gtcorange.jpg" alt="manette gaming GTC orange" loading="lazy">
+            <h3>GTC Orange</h3>
+            <p>199.9 €</p>
+            <button class="btn-buy" onclick="addToCart('GTC Orange',199.9,'gtcorange.jpg')">Ajouter</button>
+        </div>
+    </div>
+</div>
+
+<script>
+   window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXX');
+
+    function filterGTC() {
+        let input = document.getElementById('gtcSearch').value.toLowerCase();
+        let cards = document.getElementsByClassName('product-card');
+        let noResults = document.getElementById('noResults');
+        let found = false;
+
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+            if (title.includes(input)) {
+                cards[i].style.display = "";
+                found = true;
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+
+        noResults.style.display = found ? "none" : "block";
+    }
+
+    
+    function addToCart(name, price, image){
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({name, price, image});
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "panier.html";
+    }
+</script>
+
+<footer>
+        © 2026 GTC Controller - Tous droits réservés
+
+    <div style="margin-top:10px;">
+        <a href="#" style="color:gray;">Blog gaming</a> |
+        <a href="#" style="color:gray;">Guide manette PC</a> |
+        <a href="#" style="color:gray;">Accessoires gaming</a>
+    </div>
+</footer>
+
+</body>
+</html>
