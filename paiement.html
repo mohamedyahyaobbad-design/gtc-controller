@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paiement GTC Controller | Achat Manette Gaming Sécurisé</title>
+
+<meta name="description" content="Finalisez votre achat de manette gaming GTC Controller. Paiement sécurisé par carte, PayPal ou à la livraison au Maroc.">
+
+<meta name="keywords" content="paiement manette gaming, acheter GTC controller, paiement sécurisé gaming, manette Maroc">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Paiement GTC Controller">
+<meta property="og:description" content="Achetez votre manette gaming GTC en toute sécurité.">
+<meta property="og:image" content="gtc.jpg">
+
+<link rel="icon" href="gtc.jpg">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI;}
+body{background:#0a0a0a;color:white;}
+
+nav {
+position: sticky;
+top: 0;
+background: rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
+padding: 15px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+z-index: 1000;
+}
+
+.logo{font-size:26px;font-weight:bold;color:gold;}
+.menu{display:flex;gap:30px;}
+.menu a{color:white;text-decoration:none;}
+.menu a:hover{color:gold;}
+
+.container{
+display:grid;
+grid-template-columns:1fr 400px;
+gap:40px;
+padding:60px 10%;
+}
+
+.left{
+background:rgba(255,255,255,0.03);
+padding:40px;
+border-radius:20px;
+}
+
+.right{
+background:#151515;
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,215,0,0.2);
+}
+
+.payment-methods{
+display:flex;
+gap:15px;
+margin-bottom:30px;
+}
+
+.payment-btn{
+flex:1;
+padding:15px;
+border-radius:10px;
+cursor:pointer;
+text-align:center;
+background:#1a1a1a;
+transition:0.3s;
+}
+
+.payment-btn.active,
+.payment-btn:hover{
+background:gold;
+color:black;
+}
+
+.card-preview{
+width:100%;
+max-width:380px;
+height:220px;
+background:linear-gradient(135deg,#2e00fc,#2700d3,#190185);
+border-radius:20px;
+padding:25px;
+position:relative;
+box-shadow:0 20px 60px rgba(0,0,0,0.8);
+transition:0.5s;
+}
+
+.card-preview:hover{
+transform:rotateY(10deg) scale(1.05);
+}
+
+.chip{width:50px;height:35px;background:gold;border-radius:6px;}
+
+.card-number{margin-top:40px;font-size:22px;letter-spacing:4px;}
+
+.card-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:40px;
+font-size:14px;
+}
+
+.brand{
+position:absolute;
+top:20px;
+right:25px;
+font-size:20px;
+font-weight:bold;
+}
+
+.card-form{
+margin-top:25px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.card-form input{
+padding:12px;
+border-radius:10px;
+border:none;
+}
+
+.pay-box{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+
+.confirm{
+margin-top:30px;
+width:100%;
+padding:18px;
+border:none;
+border-radius:10px;
+background:gold;
+color:black;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.confirm:hover{transform:scale(1.05);}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+border-bottom:1px solid rgba(255,255,255,0.1);
+padding-bottom:5px;
+}
+
+.cart-item .left-side{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.cart-item img{
+width:45px;
+height:45px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.total{
+margin-top:20px;
+color:gold;
+font-size:20px;
+}
+
+@media(max-width:900px){
+.container{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">GTC</div>
+<div class="menu">
+<a href="accueil.html">Accueil</a>
+<a href="catalogue.html">Catalogue</a>
+<a href="panier.html">Panier</a>
+<a href="paiement.html">Paiement</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<h1 style="text-align:center;margin-top:20px;color:gold;">
+Paiement sécurisé GTC Controller
+</h1>
+
+<div class="container">
+
+<div class="left">
+
+<div class="payment-methods">
+<div class="payment-btn active" onclick="selectPayment('card',event)">Carte</div>
+<div class="payment-btn" onclick="selectPayment('paypal',event)">PayPal</div>
+<div class="payment-btn" onclick="selectPayment('cash',event)">Livraison</div>
+</div>
+
+<!-- CARTE (inchangé) -->
+<div id="cardForm">
+<div class="card-preview">
+<div class="chip"></div>
+<div class="card-number" id="cardDisplay">•••• •••• •••• ••••</div>
+<div class="card-bottom">
+<span id="nameDisplay">NOM CLIENT</span>
+<span id="expDisplay">MM/AA</span>
+</div>
+<div class="brand">VISA</div>
+</div>
+
+<div class="card-form">
+<input id="cardNumber" placeholder="Numéro carte">
+<input id="cardName" placeholder="Nom carte">
+<input id="expiry" placeholder="MM/AA">
+<input placeholder="CVV">
+</div>
+</div>
+
+<!-- ✅ PAYPAL PRO -->
+<div id="paypalForm" style="display:none">
+<div class="pay-box">
+
+<img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" width="80" style="margin-bottom:15px;">
+
+<h2>Paiement avec PayPal</h2>
+
+<p style="color:#ccc;margin:10px 0;">
+Connectez-vous à votre compte PayPal pour finaliser votre achat en toute sécurité.
+</p>
+
+<ul style="text-align:left;color:#aaa;line-height:1.6;margin-top:10px;">
+<li>✔ Paiement rapide en 1 clic</li>
+<li>✔ Protection acheteur PayPal</li>
+<li>✔ Aucune donnée bancaire partagée</li>
+</ul>
+
+<button style="margin-top:20px;width:100%;padding:15px;border:none;border-radius:10px;background:#0070ba;color:white;cursor:pointer;">
+Se connecter à PayPal
+</button>
+
+<p style="font-size:12px;color:#777;margin-top:10px;">
+Vous serez redirigé vers PayPal pour finaliser votre paiement.
+</p>
+
+</div>
+</div>
+
+<!-- ✅ LIVRAISON PRO -->
+<div id="cashForm" style="display:none">
+<div class="pay-box">
+
+<h2>Paiement à la livraison</h2>
+
+<p style="color:#ccc;margin-bottom:20px;">
+Payez en espèces à la réception de votre commande partout au Maroc.
+</p>
+
+<input placeholder="Nom complet" style="width:100%;margin-bottom:10px;padding:12px;border-radius:10px;border:none;">
+<input placeholder="Téléphone" style="width:100%;margin-bottom:10px;padding:12px;border-radius:10px;border:none;">
+<input placeholder="Ville" style="width:100%;margin-bottom:10px;padding:12px;border-radius:10px;border:none;">
+<input placeholder="Adresse complète" style="width:100%;margin-bottom:10px;padding:12px;border-radius:10px;border:none;">
+
+<div style="margin-top:15px;text-align:left;color:#aaa;line-height:1.6;">
+<p> Livraison : 24h à 72h</p>
+<p> Frais de livraison : GRATUIT</p>
+<p> Confirmation par appel avant expédition</p>
+</div>
+
+</div>
+</div>
+
+<button class="confirm" onclick="payer()">Confirmer Paiement</button>
+
+</div>
+
+<div class="right">
+<h2>Résumé commande</h2>
+<div id="cartItems"></div>
+<div class="total" id="totalPrice"></div>
+</div>
+
+</div>
+
+<script>
+function loadCart(){
+let cart = JSON.parse(localStorage.getItem("cart")) || []
+let total = 0
+let container = document.getElementById("cartItems")
+container.innerHTML = ""
+
+const fallbackImage = "gtc.jpg"
+
+if(cart.length === 0){
+container.innerHTML = `<p style="color:#bbb;">Votre panier est vide.</p>`
+document.getElementById("totalPrice").innerText = "Total : 0 €"
+return
+}
+
+cart.forEach(item=>{
+const imageUrl = item.image ? item.image : fallbackImage
+
+container.innerHTML += `
+<div class="cart-item">
+<div class="left-side">
+<img src="${imageUrl}">
+<span>${item.name}</span>
+</div>
+<span>${item.price} €</span>
+</div>`
+total += item.price
+})
+
+document.getElementById("totalPrice").innerText = "Total : "+total+" €"
+}
+
+function selectPayment(method,e){
+["card","paypal","cash"].forEach(f=>{
+document.getElementById(f+"Form").style.display="none"
+})
+document.getElementById(method+"Form").style.display="block"
+
+document.querySelectorAll(".payment-btn").forEach(b=>b.classList.remove("active"))
+e.target.classList.add("active")
+}
+
+function payer(){
+alert("Paiement réussi ✔")
+localStorage.removeItem("cart")
+window.location="accueil.html"
+}
+
+loadCart()
+</script>
+
+<footer style="text-align:center;padding:20px;background:black;color:gray;">
+© 2026 GTC Controller
+</footer>
+
+</body>
+</html>
