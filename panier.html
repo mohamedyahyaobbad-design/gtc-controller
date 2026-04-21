@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Panier GTC Controller | Achat Manette Gaming Sécurisé</title>
+<meta name="description" content="Consultez votre panier GTC Controller. Manettes gaming PC, console et mobile. Paiement sécurisé et livraison rapide partout au Maroc.">
+<meta name="keywords" content="panier gaming, GTC Controller, manette gaming, achat controller, e-commerce gaming Maroc">
+<meta name="author" content="GTC Controller">
+<link rel="icon" href="gtc.jpg">
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="Panier GTC Controller">
+<meta property="og:description" content="Votre panier gaming GTC Controller - paiement sécurisé et livraison rapide">
+<meta property="og:type" content="website">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAV (STRICTEMENT INCHANGÉ) */
+nav{
+position:sticky;
+top:0;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(12px);
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,0.1);
+z-index:1000;
+}
+
+.logo{
+font-size:26px;
+font-weight:bold;
+color:gold;
+}
+
+.menu{
+display:flex;
+gap:30px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.menu a:hover{
+color:gold;
+transform:translateY(-2px);
+}
+
+/* CONTAINER */
+.container{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+/* TITLE */
+h1{
+font-size:32px;
+margin-bottom:30px;
+border-left:4px solid gold;
+padding-left:15px;
+text-transform:uppercase;
+}
+
+/* CART GRID */
+.cart-items{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+/* ITEM CARD */
+.cart-item{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+border-left:4px solid gold;
+padding:20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-radius:12px;
+transition:0.3s;
+}
+
+.cart-item:hover{
+background:rgba(255,255,255,0.06);
+transform:translateY(-2px);
+}
+
+.cart-item img{
+width:70px;
+height:70px;
+object-fit:contain;
+background:#111;
+padding:5px;
+border-radius:10px;
+}
+
+/* INFO */
+.cart-info h3{
+font-size:15px;
+margin-bottom:5px;
+text-transform:uppercase;
+}
+
+.cart-info p{
+color:gold;
+font-weight:bold;
+}
+
+/* DELETE */
+.remove-btn{
+background:transparent;
+border:1px solid #ff4d4d;
+color:#ff4d4d;
+padding:8px 12px;
+font-size:11px;
+cursor:pointer;
+border-radius:8px;
+transition:0.3s;
+text-transform:uppercase;
+}
+
+.remove-btn:hover{
+background:#ff4d4d;
+color:white;
+}
+
+/* TOTAL BOX */
+.total-box{
+margin-top:30px;
+padding:25px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-radius:12px;
+}
+
+.total{
+font-size:22px;
+font-weight:bold;
+}
+
+.total span{
+color:gold;
+}
+
+/* BUTTONS */
+.buttons{
+display:flex;
+gap:15px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+font-weight:bold;
+cursor:pointer;
+border-radius:10px;
+transition:0.3s;
+text-transform:uppercase;
+font-size:12px;
+}
+
+.pay{
+background:gold;
+color:black;
+}
+
+.pay:hover{
+transform:scale(1.05);
+}
+
+.clear{
+background:transparent;
+border:1px solid #ff4d4d;
+color:#ff4d4d;
+}
+
+.clear:hover{
+background:#ff4d4d;
+color:white;
+}
+
+/* EMPTY STATE */
+.empty{
+text-align:center;
+padding:80px 20px;
+color:#777;
+}
+
+.empty a{
+display:inline-block;
+margin-top:20px;
+padding:10px 15px;
+border:1px solid gold;
+color:gold;
+text-decoration:none;
+}
+
+/* TRUST */
+.trust{
+text-align:center;
+margin-top:20px;
+color:#00f5ff;
+font-size:13px;
+}
+
+/* FOOTER */
+footer{
+margin-top:80px;
+padding:40px;
+background:#050505;
+border-top:1px solid #111;
+text-align:center;
+color:gray;
+font-size:13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.cart-item{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+.total-box{
+flex-direction:column;
+gap:15px;
+align-items:flex-start;
+}
+
+.buttons{
+width:100%;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV (INCHANGÉ) -->
+<nav>
+<div class="logo">GTC</div>
+<div class="menu">
+<a href="accueil.html">Accueil</a>
+<a href="catalogue.html">Catalogue</a>
+<a href="panier.html">Panier</a>
+<a href="paiement.html">Paiement</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+
+<h1>Mon Panier</h1>
+
+<div class="cart-items" id="cartItems"></div>
+
+<div class="total-box" id="totalBox">
+<div class="total">TOTAL : <span id="totalPrice">0 €</span></div>
+
+<div class="buttons">
+<button class="clear" onclick="clearCart()">Vider</button>
+<button class="pay" onclick="goToPayment()">Paiement</button>
+</div>
+</div>
+
+<p class="trust">✔ Paiement sécurisé • ✔ Livraison rapide • ✔ Garantie 1 an</p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+© 2026 GTC Controller - Tous droits réservés
+</footer>
+
+<script>
+
+function loadCart(){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let container = document.getElementById("cartItems");
+let totalBox = document.getElementById("totalBox");
+
+container.innerHTML = "";
+let total = 0;
+
+if(cart.length === 0){
+container.innerHTML = `
+<div class="empty">
+<p>Votre panier est vide</p>
+<a href="catalogue.html">Voir les produits</a>
+</div>`;
+totalBox.style.display = "none";
+return;
+}
+
+totalBox.style.display = "flex";
+
+cart.forEach((item,index)=>{
+let div = document.createElement("div");
+div.className = "cart-item";
+
+div.innerHTML = `
+<img src="${item.image}">
+<div class="cart-info">
+<h3>${item.name}</h3>
+<p>${item.price} €</p>
+</div>
+<button class="remove-btn" onclick="removeItem(${index})">Supprimer</button>
+`;
+
+container.appendChild(div);
+total += parseFloat(item.price);
+});
+
+document.getElementById("totalPrice").innerText = total + " €";
+}
+
+function removeItem(index){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart.splice(index,1);
+localStorage.setItem("cart",JSON.stringify(cart));
+loadCart();
+}
+
+function clearCart(){
+localStorage.removeItem("cart");
+loadCart();
+}
+
+function goToPayment(){
+window.location.href = "paiement.html";
+}
+
+loadCart();
+
+</script>
+
+</body>
+</html>
