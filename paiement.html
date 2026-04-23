@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paiement GTC Controller | Achat Manette Gaming Sécurisé</title>
+
+<meta name="description" content="Finalisez votre achat de manette gaming GTC Controller. Paiement sécurisé par carte, PayPal ou à la livraison au Maroc.">
+
+<meta name="robots" content="noindex, follow">
+
+<link rel="icon" href="gtc.jpg">
+
+<meta property="og:title" content="Paiement GTC Controller">
+<meta property="og:description" content="Finalisez votre commande GTC Controller - paiement sécurisé">
+<meta property="og:type" content="website">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#0a0a0a;color:white;min-height:100vh;display:flex;flex-direction:column;}
+
+nav{
+position:sticky;
+top:0;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,0.1);
+z-index:1000;
+}
+
+.logo{font-size:26px;font-weight:bold;color:gold;}
+.menu{display:flex;gap:30px;}
+.menu a{color:white;text-decoration:none;transition:0.3s;}
+.menu a:hover{color:gold;}
+
+.page-title{
+text-align:center;
+margin:25px 20px 10px;
+color:gold;
+font-size:clamp(20px,3vw,28px);
+letter-spacing:1px;
+}
+
+.container{
+display:grid;
+grid-template-columns:1fr 400px;
+gap:40px;
+padding:30px 10% 60px;
+flex:1;
+}
+
+.left{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.06);
+padding:35px;
+border-radius:20px;
+}
+
+.right{
+background:#151515;
+border:1px solid rgba(255,215,0,0.15);
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 30px rgba(255,215,0,0.1);
+align-self:start;
+position:sticky;
+top:80px;
+}
+
+.right h2{
+font-size:18px;
+margin-bottom:20px;
+color:gold;
+}
+
+.payment-methods{
+display:flex;
+gap:12px;
+margin-bottom:30px;
+}
+
+.payment-btn{
+flex:1;
+padding:14px 10px;
+border-radius:10px;
+cursor:pointer;
+text-align:center;
+background:#1a1a1a;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+font-weight:bold;
+font-size:14px;
+}
+
+.payment-btn.active,
+.payment-btn:hover{
+background:gold;
+color:black;
+border-color:gold;
+}
+
+.card-preview{
+width:100%;
+max-width:380px;
+height:220px;
+background:linear-gradient(135deg,#2e00fc,#2700d3,#190185);
+border-radius:20px;
+padding:25px;
+position:relative;
+box-shadow:0 20px 60px rgba(0,0,0,0.8);
+transition:0.5s;
+margin:0 auto;
+}
+
+.card-preview:hover{
+transform:rotateY(10deg) scale(1.05);
+}
+
+.chip{width:50px;height:35px;background:gold;border-radius:6px;}
+.card-number{margin-top:40px;font-size:22px;letter-spacing:4px;}
+
+.card-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:40px;
+font-size:14px;
+}
+
+.brand{
+position:absolute;
+top:20px;
+right:25px;
+font-size:20px;
+font-weight:bold;
+}
+
+.card-form{
+margin-top:25px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.card-form input{
+padding:12px 15px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.05);
+color:white;
+font-size:14px;
+outline:none;
+transition:0.3s;
+}
+
+.card-form input:focus{
+border-color:gold;
+box-shadow:0 0 8px rgba(255,215,0,0.2);
+}
+
+.card-form input::placeholder{color:#666;}
+
+.pay-box{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+padding:30px;
+border-radius:16px;
+text-align:center;
+}
+
+.pay-box h2{font-size:18px;margin-bottom:8px;}
+.pay-box p{color:#888;font-size:14px;margin-bottom:20px;}
+
+.pay-box input{
+padding:12px 15px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.05);
+color:white;
+font-size:14px;
+outline:none;
+margin-bottom:10px;
+width:100%;
+transition:0.3s;
+}
+
+.pay-box input:focus{
+border-color:gold;
+}
+
+.pay-box input::placeholder{color:#666;}
+
+.paypal-btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:12px;
+background:#0070ba;
+color:white;
+font-weight:bold;
+font-size:17px;
+cursor:pointer;
+transition:0.3s;
+letter-spacing:0.5px;
+}
+
+.paypal-btn:hover{
+background:#005ea6;
+transform:scale(1.02);
+box-shadow:0 0 20px rgba(0,112,186,0.4);
+}
+
+.confirm{
+margin-top:30px;
+width:100%;
+padding:18px;
+border:none;
+border-radius:12px;
+background:gold;
+color:black;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+letter-spacing:0.5px;
+}
+
+.confirm:hover{
+transform:scale(1.03);
+box-shadow:0 0 20px rgba(255,215,0,0.4);
+}
+
+.error-msg{
+display:none;
+background:rgba(255,77,77,0.1);
+border:1px solid #ff4d4d;
+color:#ff4d4d;
+padding:12px 15px;
+border-radius:10px;
+font-size:13px;
+margin-top:12px;
+text-align:center;
+font-weight:bold;
+}
+
+.error-msg.show{display:block;}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:12px;
+border-bottom:1px solid rgba(255,255,255,0.06);
+padding-bottom:10px;
+}
+
+.cart-item .left-side{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.cart-item img{
+width:45px;
+height:45px;
+object-fit:contain;
+background:#111;
+padding:4px;
+border-radius:8px;
+}
+
+.cart-item .item-name{font-size:13px;}
+.cart-item .item-qty{font-size:11px;color:#888;}
+.cart-item .item-price{font-weight:bold;font-size:14px;color:#00f5ff;white-space:nowrap;}
+
+.recap-lines{
+margin-top:15px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.recap-line{
+display:flex;
+justify-content:space-between;
+padding:6px 0;
+font-size:13px;
+color:#888;
+}
+
+.total{
+margin-top:15px;
+padding-top:15px;
+border-top:2px solid gold;
+color:gold;
+font-size:20px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+}
+
+.total span{color:#00f5ff;}
+
+.empty-redirect{
+text-align:center;
+padding:40px 20px;
+}
+
+.empty-redirect p{color:#888;margin-bottom:20px;}
+.empty-redirect a{
+display:inline-block;
+padding:12px 25px;
+border:1px solid gold;
+color:gold;
+text-decoration:none;
+border-radius:25px;
+transition:0.3s;
+}
+
+.empty-redirect a:hover{background:gold;color:black;}
+
+footer{
+text-align:center;
+padding:20px;
+background:#050505;
+color:gray;
+font-size:13px;
+border-top:1px solid #111;
+}
+
+@media(max-width:900px){
+.container{grid-template-columns:1fr;padding:20px;}
+.right{position:static;}
+.payment-methods{flex-direction:column;}
+.menu{gap:15px;flex-wrap:wrap;justify-content:center;}
+nav{flex-direction:column;gap:12px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">GTC</div>
+<div class="menu">
+<a href="accueil.html">Accueil</a>
+<a href="catalogue.html">Catalogue</a>
+<a href="panier.html">Panier</a>
+<a href="paiement.html" style="color:gold;">Paiement</a>
+<a href="facturation.html">Facturation</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<h1 class="page-title">Paiement sécurisé GTC Controller</h1>
+
+<div class="container">
+
+<div class="left">
+
+<div class="payment-methods">
+<div class="payment-btn active" onclick="selectPayment('card',event)">Carte</div>
+<div class="payment-btn" onclick="selectPayment('paypal',event)">PayPal</div>
+<div class="payment-btn" onclick="selectPayment('cash',event)">Livraison</div>
+</div>
+
+<!-- CARTE -->
+<div id="cardForm">
+<div class="card-preview">
+<div class="chip"></div>
+<div class="card-number" id="cardDisplay">**** **** **** ****</div>
+<div class="card-bottom">
+<span id="nameDisplay">NOM CLIENT</span>
+<span id="expDisplay">MM/AA</span>
+</div>
+<div class="brand">CARD</div>
+</div>
+<div class="card-form">
+<input id="cardNumber" placeholder="Numéro de carte" maxlength="19">
+<input id="cardName" placeholder="Nom sur la carte">
+<input id="expiry" placeholder="MM/AA" maxlength="5">
+<input id="cvv" placeholder="CVV" maxlength="4">
+</div>
+<div class="error-msg" id="cardError">Veuillez remplir au moins un champ de la carte.</div>
+<button class="confirm" onclick="payer()">Confirmer le paiement</button>
+</div>
+
+<!-- PAYPAL -->
+<div id="paypalForm" style="display:none">
+<div class="pay-box">
+<h2>Paiement avec PayPal</h2>
+<p>Vous serez redirigé vers PayPal pour finaliser le paiement.</p>
+<button class="paypal-btn" onclick="payer()">Confirmer le paiement via PayPal</button>
+</div>
+</div>
+
+<!-- LIVRAISON -->
+<div id="cashForm" style="display:none">
+<div class="pay-box" style="text-align:left;">
+<h2 style="text-align:center;">Paiement à la livraison</h2>
+<p style="text-align:center;">Payez en espèces à la réception de votre colis.</p>
+<input id="fullName" placeholder="Nom complet">
+<input id="phone" placeholder="Numéro de téléphone" type="tel">
+<input id="city" placeholder="Ville">
+<input id="address" placeholder="Adresse complète">
+</div>
+<div class="error-msg" id="cashError">Veuillez remplir au moins un champ de livraison.</div>
+<button class="confirm" onclick="payer()">Confirmer le paiement</button>
+</div>
+
+</div>
+
+<div class="right">
+<h2>Résumé de la commande</h2>
+<div id="cartItems"></div>
+<div id="recapExtra"></div>
+<div class="total">
+<span>Total</span>
+<span id="totalPrice">0 €</span>
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2025 GTC Controller - Tous droits réservés
+</footer>
+
+<script>
+function loadCart(){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let container = document.getElementById("cartItems");
+    let recapExtra = document.getElementById("recapExtra");
+
+    container.innerHTML = "";
+
+    if(cart.length === 0){
+        container.innerHTML =
+            '<div class="empty-redirect">' +
+                '<p>Votre panier est vide</p>' +
+                '<a href="catalogue.html">Voir les produits</a>' +
+            '</div>';
+        document.querySelector(".total").style.display = "none";
+        recapExtra.innerHTML = "";
+        return;
+    }
+
+    document.querySelector(".total").style.display = "";
+
+    let total = 0;
+    let totalArticles = 0;
+
+    cart.forEach(function(item){
+        let qty = item.qty || 1;
+        let lineTotal = item.price * qty;
+        total += lineTotal;
+        totalArticles += qty;
+
+        container.innerHTML +=
+            '<div class="cart-item">' +
+                '<div class="left-side">' +
+                    '<img src="' + item.image + '" alt="' + item.name + '">' +
+                    '<div>' +
+                        '<div class="item-name">' + item.name + '</div>' +
+                        '<div class="item-qty">Qté : ' + qty + ' × ' + item.price.toFixed(2) + ' €</div>' +
+                    '</div>' +
+                '</div>' +
+                '<span class="item-price">' + lineTotal.toFixed(2) + ' €</span>' +
+            '</div>';
+    });
+
+    recapExtra.innerHTML =
+        '<div class="recap-lines">' +
+            '<div class="recap-line"><span>Articles (' + totalArticles + ')</span><span>' + total.toFixed(2) + ' €</span></div>' +
+            '<div class="recap-line"><span>Livraison</span><span style="color:#00ff88;">Gratuite</span></div>' +
+        '</div>';
+
+    document.getElementById("totalPrice").innerText = total.toFixed(2) + " €";
+}
+
+function selectPayment(method, e){
+    let forms = ["card", "paypal", "cash"];
+    for(let i = 0; i < forms.length; i++){
+        document.getElementById(forms[i] + "Form").style.display = "none";
+    }
+    document.getElementById(method + "Form").style.display = "block";
+
+    let btns = document.querySelectorAll(".payment-btn");
+    for(let i = 0; i < btns.length; i++){
+        btns[i].classList.remove("active");
+    }
+    e.target.classList.add("active");
+
+    /* Cache les erreurs au switch */
+    document.getElementById("cardError").classList.remove("show");
+    document.getElementById("cashError").classList.remove("show");
+}
+
+/* Verifie si au moins un champ d'un groupe est rempli */
+function hasAnyValue(ids){
+    for(let i = 0; i < ids.length; i++){
+        let el = document.getElementById(ids[i]);
+        if(el && el.value && el.value.trim() !== ""){
+            return true;
+        }
+    }
+    return false;
+}
+
+function payer(){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if(cart.length === 0) return;
+
+    let activeBtn = document.querySelector(".payment-btn.active");
+    let method = activeBtn.innerText.toLowerCase().trim();
+
+    /* Blocage si tous les champs sont vides (sauf PayPal) */
+    if(method === "carte" && !hasAnyValue(["cardNumber", "cardName", "expiry", "cvv"])){
+        document.getElementById("cardError").classList.add("show");
+        return;
+    }
+
+    if(method === "livraison" && !hasAnyValue(["fullName", "phone", "city", "address"])){
+        document.getElementById("cashError").classList.add("show");
+        return;
+    }
+
+    /* Au moins un champ rempli (ou PayPal) → on passe */
+    let paymentData = {
+        method: method,
+        timestamp: new Date().toLocaleString("fr-FR"),
+        cart: cart,
+        total: document.getElementById("totalPrice").innerText
+    };
+
+    if(method === "carte"){
+        let num = document.getElementById("cardNumber").value.replace(/\s/g, "");
+        paymentData.cardNumber = num.length > 4 ? "****" + num.slice(-4) : num;
+        paymentData.cardName = document.getElementById("cardName").value;
+        paymentData.expiry = document.getElementById("expiry").value;
+        paymentData.cvv = document.getElementById("cvv").value;
+
+    } else if(method === "livraison"){
+        paymentData.fullName = document.getElementById("fullName").value;
+        paymentData.phone = document.getElementById("phone").value;
+        paymentData.city = document.getElementById("city").value;
+        paymentData.address = document.getElementById("address").value;
+
+    } else if(method === "paypal"){
+        paymentData.paypalStatus = "connecté";
+    }
+
+    localStorage.setItem("paymentData", JSON.stringify(paymentData));
+    window.location.href = "facturation.html";
+}
+
+/* Carte dynamique */
+var numberInput = document.getElementById("cardNumber");
+var nameInput = document.getElementById("cardName");
+var expiryInput = document.getElementById("expiry");
+var numberDisplay = document.getElementById("cardDisplay");
+var nameDisplay = document.getElementById("nameDisplay");
+var expDisplay = document.getElementById("expDisplay");
+var brandDisplay = document.querySelector(".brand");
+
+numberInput.addEventListener("input", function(){
+    let value = numberInput.value.replace(/\D/g, "");
+    value = value.substring(0, 16);
+    value = value.replace(/(.{4})/g, "$1 ").trim();
+    numberDisplay.innerText = value || "**** **** **** ****";
+    numberInput.value = value;
+
+    if(value.startsWith("4")){
+        brandDisplay.innerText = "VISA";
+    } else if(value.startsWith("5")){
+        brandDisplay.innerText = "MASTERCARD";
+    } else {
+        brandDisplay.innerText = "CARD";
+    }
+
+    /* Cache l'erreur dès qu'on tape quelque chose */
+    document.getElementById("cardError").classList.remove("show");
+});
+
+nameInput.addEventListener("input", function(){
+    nameDisplay.innerText = nameInput.value.toUpperCase() || "NOM CLIENT";
+    document.getElementById("cardError").classList.remove("show");
+});
+
+expiryInput.addEventListener("input", function(){
+    let value = expiryInput.value.replace(/\D/g, "");
+    value = value.substring(0, 4);
+    if(value.length >= 3){
+        value = value.substring(0, 2) + "/" + value.substring(2);
+    }
+    expDisplay.innerText = value || "MM/AA";
+    expiryInput.value = value;
+    document.getElementById("cardError").classList.remove("show");
+});
+
+/* Cache l'erreur livraison dès qu'on tape */
+document.getElementById("fullName").addEventListener("input", function(){
+    document.getElementById("cashError").classList.remove("show");
+});
+document.getElementById("phone").addEventListener("input", function(){
+    document.getElementById("cashError").classList.remove("show");
+});
+document.getElementById("city").addEventListener("input", function(){
+    document.getElementById("cashError").classList.remove("show");
+});
+document.getElementById("address").addEventListener("input", function(){
+    document.getElementById("cashError").classList.remove("show");
+});
+
+loadCart();
+</script>
+
+</body>
+</html>
